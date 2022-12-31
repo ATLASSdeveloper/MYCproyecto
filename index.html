@@ -19,6 +19,7 @@
 
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="static/css/estiloprincipal.css">
+	<link rel="stylesheet" href="static/css/styles.css"
 </head>
 
 <body background="static/images/fondo.jpg">
@@ -29,6 +30,7 @@
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
+				<!-- Seccion del NAV para los botones -->
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -59,78 +61,26 @@
 				<form class="d-flex">
 					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Search</button>
+					<!-- Fin de la seccion -->
 				</form>
 			</div>
 		</div>
 	</nav>
-	<center>
-		<br />
+	<div class="login-box">
+		<img src="" alt="LOGO CALQUIERA">
+		<h1>Login</h1>
+		<form >
+			<label for="Usuario">Username</label>
+			<input type="text" placeholder="Enter username">
 
+			<label for="contraseña">Password</label>
+			<input type="password" placeholder="Enter password">
+			<input type="submit" values="Log in">
+			<a href="@">has olvidado tu contraseña</a>
+			<a href="@">Recupera tu cuenta</a>
 
-		<h3>
-			<font size=5 color="white"> LOGIN </font>
-		</h3>
-		<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-			<table>
-				<tr>
-					<td>
-						<font size=4 color="white">USUARIO:</font>
-					</td>
-					<td><input type="text" name="USUARIO" placeholder="Ingresa tu usuario"></td>
-				</tr>
-				<tr>
-					<td>
-						<font size=4 color="white">CONTRASEÑA:</font>
-					</td>
-					<td><input type="password" name="CONTRASENA" placeholder="Ingresa tu contraseña"></td>
-				</tr>
-
-				<tr>
-					<td>
-						<p>
-						<p><input type="submit" name="submit" value="Ingresar">
-					</td>
-				</tr>
-
-			</table>
 		</form>
-	</center>
-	<script>
-		if ('WebSocket' in window) {
-			(function () {
-				function refreshCSS() {
-					var sheets = [].slice.call(document.getElementsByTagName("link"));
-					var head = document.getElementsByTagName("head")[0];
-					for (var i = 0; i < sheets.length; ++i) {
-						var elem = sheets[i];
-						var parent = elem.parentElement || head;
-						parent.removeChild(elem);
-						var rel = elem.rel;
-						if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-							var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-							elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-						}
-						parent.appendChild(elem);
-					}
-				}
-				var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-				var address = protocol + window.location.host + window.location.pathname + '/ws';
-				var socket = new WebSocket(address);
-				socket.onmessage = function (msg) {
-					if (msg.data == 'reload') window.location.reload();
-					else if (msg.data == 'refreshcss') refreshCSS();
-				};
-				if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-					console.log('Live reload enabled.');
-					sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-				}
-			})();
-		}
-		else {
-			console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-		}
-	// ]]>
-	</script>
+	</div>
 </body>
 
 </html>
