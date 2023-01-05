@@ -1,0 +1,12 @@
+CREATE DATABASE proyectomycs;
+USE proyectomycs;
+CREATE TABLE usuarios (
+	id PRIMARY KEY int not null AUTO_INCREMENT,
+	PRIMARY KEY (id), 
+	email varchar(20) not null, 
+	clave varchar(5) not null
+);
+
+INSERT INTO usuarios VALUES (NULL,'jl@uta.edu.ec','jl123');
+INSERT INTO usuarios VALUES (NULL,'cl@uta.edu.ec','cl123');
+INSERT INTO usuarios VALUES (NULL,'dl@uta.edu.ec','dl123');
