@@ -1,6 +1,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="javascript/jquery.js"></script>
+<script src="javascript/index.js"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,12 +71,12 @@
 	<div class="login-box">
 		<img src="" alt="LOGO CALQUIERA">
 		<h1>Login</h1>
-		<form >
+		<form id="login">
 			<label for="Usuario">Username</label>
-			<input type="text" placeholder="Enter username" id="usuario">
+			<input type="email" placeholder="Ingrese su correo" id="usuario">
 
 			<label for="contraseña">Password</label>
-			<input type="password" placeholder="Enter password" id="clave">
+			<input type="password" placeholder="Ingrese su clave" id="clave">
 			<input type="submit" values="Log in">
 			<a href="@">has olvidado tu contraseña</a>
 			<a href="@">Recupera tu cuenta</a>

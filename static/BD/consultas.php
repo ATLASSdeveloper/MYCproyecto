@@ -11,5 +11,11 @@
         return $resultado['cantidad'];
 
     }
-
+    function identificarUsuario($correo,$clave){
+        $conexion=conectar();
+        $consulta=$conexion->prepare("SELECT id FROM usuarios where email=? AND clave=? ");
+        $consulta->execute(array($correo,$clave));
+        $resultado=$consulta->fetch();
+        return $resultado['id'];
+    }
 ?>
