@@ -1,6 +1,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="javascript/jquery.js"></script>
+<script src="javascript/index.js"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,11 +21,11 @@
 
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="static/css/estiloprincipal.css">
-	<link rel="stylesheet" href="static/css/styles.css"
+	<link rel="stylesheet" href="static/css/styles.css">
 </head>
 
 <body background="static/images/fondo.jpg">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-black">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">MiniAmazon</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -67,17 +69,17 @@
 		</div>
 	</nav>
 	<div class="login-box">
-		<img src="" alt="LOGO CALQUIERA">
+		<img src="static/images/logo.jpg" alt="LOGO CALQUIERA">
 		<h1>Login</h1>
-		<form >
-			<label for="Usuario">Username</label>
-			<input type="text" placeholder="Enter username" id="usuario">
+		<form id="login">
+			<label for="Usuario">Usuario</label>
+			<input type="email" placeholder="Ingrese su correo" id="usuario">
 
-			<label for="contraseña">Password</label>
-			<input type="password" placeholder="Enter password" id="clave">
+			<label for="contraseña">Contraseña</label>
+			<input type="password" placeholder="Ingrese su clave" id="clave">
 			<input type="submit" values="Log in">
-			<a href="@">has olvidado tu contraseña</a>
-			<a href="@">Recupera tu cuenta</a>
+			<p>¿Has olvidado tu contraseña? <a href="@">Recupera tu cuenta</a> /	<a href="registroUsuario.html">Registrate</a></p>
+	
 
 		</form>
 	</div>

@@ -72,19 +72,18 @@ input:focus {
 body {
     margin: 0;
     padding: 0;
-    background: url(../images/fondo.jpg) no-repeat center top;
+    background: url(../images/fondomio.jpg) center top;
     font-size: sans-serif;
     height: 100vh;
-
-
 }
 
+
 .login-box {
-    width: 320px;
-    height: 420px;
-    background: #000;
+    width: 330px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.685);
     color: #fff;
-    top: 50%;
+    top: 55%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -92,13 +91,13 @@ body {
     padding: 70px 30px;
 }
 
-.login-box avatar {
+.login-box img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 110%;
     position: absolute;
-    top: 50px;
-    left: calc(50%-50px);
+    top: -45px;
+    left: 115px;
 }
 
 .login-box h1 {
@@ -114,6 +113,7 @@ body {
     padding: 0;
     font-weight: bold;
     display: block;
+    
 }
 
 .login-box input {
@@ -130,16 +130,18 @@ body {
     height: 40px;
     color: #fff;
     font-size: 15px;
+    font-size: sans-serif;
 }
 
 .login-box input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
-    background: #b80f22;
+    background: #b92d06 ;
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
+text-align: center;
 }
 
 .login-box a {
@@ -147,8 +149,85 @@ body {
     font-size: 12px;
     line-height: 20px;
     color: darkgrey;
+    text-align: center;
 }
 
 .login-box a:hover {
     color: #fff;
 }
+
+.form-register {
+    width: 390px;
+    height: 520px;
+    background: rgba(0, 0, 0, 0.685);
+    color: #fff;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    font-size: sans-serif;
+  }
+  
+  .form-register h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    font-size: sans-serif;
+
+  }
+  
+  .controls {
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid white;
+    font-size: 18px;
+    color: white;
+    font-size: sans-serif;
+    
+  }
+  
+  .form-register p {
+    height: 12px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 40px;
+    font-size: sans-serif;
+
+  }
+  
+  .form-register a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+    font-size: sans-serif;
+
+  }
+  
+  .form-register a:hover {
+    color: white;
+    text-decoration: underline;
+    font-size: sans-serif;
+
+  }
+  
+  .form-register .botons {
+    width: 100%;
+    background: #b92d06 ;
+    border: none;
+    padding: 12px;
+    color: #fff;
+    margin: 16px;
+    outline: none;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 12px;
+    font-size: sans-serif;
+
+  }
