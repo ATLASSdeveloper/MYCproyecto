@@ -1,0 +1,32 @@
+.blue-text{
+    color: #4947d1;
+}
+.productos{
+    display: flex;
+    justify-content: space-around;
+}
+.product img{
+    width: 150px;
+    display: block;
+    margin: auto;
+}
+.productos{
+    display: flex;
+    justify-content: space-around;
+}
+.product h3{
+    font-size: 1.7em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: black;
+    text-align: center;
+}
+.product p{
+    color: black;
+    text-align: center;
+}
+.card{
+    border-radius: 4px;
+    background-color: rgb(253, 252, 252);
+    box-shadow: 0 1px 3px rgba(0,0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
