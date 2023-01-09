@@ -23,4 +23,13 @@ include_once("../static/BD/consultas.php");
         }
     }
 
+
+    if(isset($_POST['minombre'])){
+        $nom=$_POST['minombre'];
+        $ap=$_POST['miapellido'];
+        $cor=$_POST['micorreo'];
+        $cl=$_POST['miclave'];
+
+        crearUsuario($nom,$ap,$cor,$cl);
+    }
 ?>
