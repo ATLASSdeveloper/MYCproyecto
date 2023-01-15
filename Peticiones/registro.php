@@ -32,4 +32,15 @@ include_once("../static/BD/consultas.php");
 
         crearUsuario($nom,$ap,$cor,$cl);
     }
+
+    if(isset($_POST['opcion'])){
+        if($_POST['opcion']==1){
+            session_start();
+            if($_SESSION['user']==""){
+                return 0;
+            }else{
+                return 1;
+            }
+        }
+    }
 ?>

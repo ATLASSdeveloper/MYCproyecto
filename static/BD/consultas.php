@@ -23,4 +23,12 @@
         $consulta=$conexion->prepare("INSERT INTO usuarios VALUES (0,?,?,?,?)");
         $consulta->execute(array($nom,$ap,$cor,$cl));
     }
+
+    function listarArticulos(){
+        $conexion=conectar();
+        $consulta=$conexion->prepare("SELECT * FROM articulos");
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        return $resultado;
+    }
 ?>
