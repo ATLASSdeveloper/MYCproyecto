@@ -43,4 +43,9 @@ include_once("../static/BD/consultas.php");
             }
         }
     }
+
+    if(isset($_POST['articulo_identificado'])){
+        session_start();
+        $_SESSION['articulo']=$_POST['articulo_identificado'];
+    }
 ?>
