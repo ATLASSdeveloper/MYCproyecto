@@ -31,4 +31,12 @@
         $resultado=$consulta->fetchAll();
         return $resultado;
     }
+
+    function detalle_articulos($id){
+        $conexion=conectar();
+        $consulta=$conexion->prepare("SELECT * FROM articulos Where id=?");
+        $consulta->execute(array($id));
+        $resultado=$consulta->fetch();
+        return $resultado;
+    }
 ?>
