@@ -21,10 +21,10 @@ $dato=enviarInformacionArticulo($_SESSION['articulo']);
             alt='Palm Springs Road' with='400' height='500'/>";?>
   </div>
   <div class="align-items-center d-flex justify-content-around p-2 w-50">
-    <a > <h1><?php echo $dato['nombre']?></h1> <br> 
-    <h2><?php echo $dato['marca']?></h2> <br>
-    <h4><?php echo $dato['precio']?>$ </h4><br>
-    <h4><?php echo $dato['tipo']?></h4></a>
+    <a > <h1>Producto : <?php echo $dato['nombre']?></h1> <br> 
+    <h2>Marca : <?php echo $dato['marca']?></h2> <br>
+    <h4>Precio :<?php echo $dato['precio']?>$ </h4><br>
+    <h4>Tipo : <?php echo $dato['tipo']?></h4></a>
   </div>
 </div>
 </body>

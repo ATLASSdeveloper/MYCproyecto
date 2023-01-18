@@ -10,3 +10,12 @@ CREATE TABLE usuarios (
 INSERT INTO usuarios VALUES (NULL,'jl@uta.edu.ec','jl123');
 INSERT INTO usuarios VALUES (NULL,'cl@uta.edu.ec','cl123');
 INSERT INTO usuarios VALUES (NULL,'dl@uta.edu.ec','dl123');
+
+CREATE TABLE `articulos` (
+  `id` int AUTO_INCREMENT PRIMARY KEY,
+  `nombre` varchar(100) NOT NULL,
+  `precio` double NOT NULL,
+  `tipo` varchar(50) NOT NULL,
+  `marca` varchar(30) NOT NULL,
+  `imagen` blob NOT NULL
+)
