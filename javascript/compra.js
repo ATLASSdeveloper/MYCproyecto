@@ -3,7 +3,7 @@ $(document).ready(function(){
         if(document.getElementById("correo").value=="" ||document.getElementById("clave").value=="" ){
             document.getElementById("verifica").hidden=false;
         }else{
-            window.location.href="../factura.html";
+            window.location.href="../factura.php";
         }
     })
 })

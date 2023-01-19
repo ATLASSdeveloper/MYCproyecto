@@ -1,3 +1,5 @@
+
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,7 +50,7 @@
                     </ul>
                 </div>
             </div>
-
+            <p class="fw-bold">Fecha de emisión: <span class="text-muted"><?php echo $fechaActual = date('d/m/y h:i:s')?></span></p>
             <div class="row text-center">
                 <h3 class="text-uppercase text-center mt-3" style="font-size: 40px;">Factura</h3>
                 
@@ -59,26 +61,33 @@
                     <thead>
                         <tr>
                             <th scope="col">Descripción</th>
+                            <th scope="col">Precio</th>
                             <th scope="col">Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Samsung TV</td>
-                            <td><i class="fas fa-dollar-sign"></i> 500,00</td>
-                        </tr>
-                        <tr>
-                            <td>JBL Speaker</td>
-                            <td><i class="fas fa-dollar-sign"></i> 300,00</td>
-                        </tr>
-                        <tr>
-                            <td>Macbook Air</td>
-                            <td><i class="fas fa-dollar-sign"></i> 1000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Iphone 11 PRO</td>
-                            <td><i class="fas fa-dollar-sign"></i> 5000,00</td>
-                        </tr>
+                        <?php
+                            
+                            session_start();
+                            $usuario=$_SESSION['user'];
+                            $articulo=$_SESSION['articulo'];
+                            include_once("static/BD/consultas.php");
+
+                            $dato=articulos($articulo);
+                            $impresion="";
+                            $subtotal=0;
+                            foreach ($dato as $d){
+                                $impresion.=  "<tr>
+                                                <td>".$d['nombre']."</td>
+                                                <td><i class='fas fa-dollar-sign'></i> ".$d['precio']."</td>
+                                                <td>1</td>
+                                                </tr>";
+                                $subtotal=$subtotal+($d['precio']*1);
+                            }
+                            $total=($subtotal*112)/100;
+                            factura($usuario,$fechaActual,$articulo,1,$total);
+                            echo $impresion;
+                        ?>
                     </tbody>
                 </table>
 
@@ -86,12 +95,19 @@
             <div class="row">
                 <div class="col-xl-8">
                     <ul class="list-unstyled float-end me-0">
-                        <li><span class="me-3 float-start">Cantidad total:</span><i class="fas fa-dollar-sign"></i>
-                            6850,00
+                        <li><span class="me-3 float-start">Subtotal:</span>
                         </li>
-                        <li> <span class="me-5"> Iva:</span><i class="fas fa-dollar-sign"></i> 12%</li>
+                        <li> <span class="me-5"> Iva:</span></i> </li>
                         <li><span class="float-start" style="margin-right: 35px;">Total con Iva:</span><i
-                                class="fas fa-dollar-sign"></i> 500,00</li>
+                                ></i> </li>
+                    </ul>
+                </div>
+                <div class="col-xl-1">
+                    <ul class="list-unstyled float-end me-0">
+                        <li><?php echo $subtotal?><i class="fas fa-dollar-sign"></i>
+                        </li>
+                        <li>  12%</li>
+                        <li><?php echo $total?><i class="fas fa-dollar-sign"></i></li>
                     </ul>
                 </div>
             </div>
@@ -101,16 +117,14 @@
                     <p class="float-end"
                         style="font-size: 30px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
                         Total:
-                        <span><i class="fas fa-dollar-sign"></i> 6350,00</span>
+                        <span><i class="fas fa-dollar-sign"></i> <?php echo $total?></span>
                     </p>
                 </div>
 
             </div>
-
-            <div class="row mt-2 mb-5">
-                <p class="fw-bold">Date: <span class="text-muted">23 June 20221</span></p>
-                <p class="fw-bold mt-3">Signature:</p>
-            </div>
+            <a href="FrontEnd/paginaPrincipal.php"><button type="button" class="btn btn-warning">Página Principal</button></a>
+            
+                
 
         </div>
 

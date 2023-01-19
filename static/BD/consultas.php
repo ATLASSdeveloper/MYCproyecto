@@ -39,4 +39,18 @@
         $resultado=$consulta->fetch();
         return $resultado;
     }
+
+    function articulos($id){
+        $conexion=conectar();
+        $consulta=$conexion->prepare("SELECT * FROM articulos Where id=?");
+        $consulta->execute(array($id));
+        $resultado=$consulta->fetchAll();
+        return $resultado;
+    }
+
+    function factura($comprador,$fecha,$articulo,$cantidad,$total){
+        $conexion=conectar();
+        $consulta=$conexion->prepare("INSERT INTO facturas values(0,?,?,?,?,?)");
+        $consulta->execute(array($comprador,$fecha,$articulo,$cantidad,$total));
+    }
 ?>

@@ -24,4 +24,6 @@ function impresionControlada(){
 function enviarInformacionArticulo($id){
     return detalle_articulos($id);
 }
+
+
 ?>
