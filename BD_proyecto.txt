@@ -19,3 +19,14 @@ CREATE TABLE `articulos` (
   `marca` varchar(30) NOT NULL,
   `imagen` blob NOT NULL
 )
+
+CREATE TABLE `facturas` (
+  `id` int AUTO_INCREMENT PRIMARY KEY,
+  `comprador_id` int NOT NULL,
+    FOREIGN KEY (comprador_id) REFERENCES usuarios(id),
+  `fecha` datetime NOT NULL,
+  `articulo_id` int NOT NULL ,
+    FOREIGN KEY (articulo_id) REFERENCES articulos(id),
+  `cantidad` int NOT NULL,
+  `total` double NOT NULL
+) 
