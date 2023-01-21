@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <!-- basic -->
     <meta charset="utf-8">
@@ -82,257 +83,56 @@
         </div>
     </div>
 
+
     <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <meta name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                
-                // Variables
-                const baseDeDatos = [
-                    {
-                        id: 1,
-                        nombre: 'Camisa',
-                        precio: 15,
-                        tipo: 'Ropa',
-                        imagen: 'https://ropagallardo.com.ec/wp-content/uploads/2022/03/IMG_3426-2-1-scaled.jpg'
-                    },
-                    {
-                        id: 2,
-                        nombre: 'Pantalon',
-                        precio: 12,
-                        tipo:'Ropa',
-                        imagen: 'https://pical.com.ec/pub/media/catalog/product/cache/4d7cebec2a741af81f9d40e6bb974c6b/c/i/ci50-00008-4j.jpg'
-                    },
-                    {
-                        id: 3,
-                        nombre: 'Laptop',
-                        precio: 90,
-                        tipo:'Tecnología',
-                        imagen: 'https://www.artefacta.com/media/catalog/product/1/3/133247.png'
-                    },
-                    {
-                        id: 4,
-                        nombre: 'PC',
-                        precio: 120,
-                        tipo:'Tegnología',
-                        imagen: 'https://media.wired.com/photos/624df21cb340f55b37084fdc/2:3/w_1200,h_1800,c_limit/How-to-Build-a-PC-Gear.jpg'
-                    },
-                    {
-                        id: 5,
-                        nombre: 'Balon Futbol',
-                        precio: 5,
-                        tipo:'Deporte',
-                        imagen: 'https://assets.adidas.com/images/w_1880,f_auto,q_auto/28530d07245942fc944dae680084fb30_9366/H57783_01_standard.jpg'
-                    },
-                    {
-                        id: 6,
-                        nombre: 'Raqueta',
-                        precio: 20,
-                        tipo:'Deporte',
-                        imagen: 'https://thesportshop.ec/wp-content/uploads/2019/08/IMG_1323.jpg'
-                    }
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="../javascript/jquery.js"></script>
+        <script src="../javascript/compra.js"></script>
 
-                ];
-
-                let carrito = [];
-                const divisa = '$';
-                const DOMitems = document.querySelector('#items');
-                const DOMcarrito = document.querySelector('#carrito');
-                const DOMtotal = document.querySelector('#total');
-                const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-                const miLocalStorage = window.localStorage;
-
-                // Funciones
-
-                /**
-                * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
-                */
-                function renderizarProductos() {
-                    baseDeDatos.forEach((info) => {
-                        // Estructura
-                        const miNodo = document.createElement('div');
-                        miNodo.classList.add('card', 'col-sm-5');
-                        // Body
-                        const miNodoCardBody = document.createElement('div');
-                        miNodoCardBody.classList.add('card-body');
-                        // Titulo
-                        const miNodoTitle = document.createElement('h5');
-                        miNodoTitle.classList.add('card-title');
-                        miNodoTitle.textContent = info.nombre;
-                        // Imagen
-                        const miNodoImagen = document.createElement('img');
-                        miNodoImagen.classList.add('img-fluid');
-                        miNodoImagen.setAttribute('src', info.imagen);
-                        // Precio
-                        const miNodoPrecio = document.createElement('p');
-                        miNodoPrecio.classList.add('card-text');
-                        miNodoPrecio.textContent = `${info.precio}${divisa}`;
-                        //tipo
-                        const miNodoTipo = document.createElement('p');
-                        miNodoTipo.classList.add('card-text');
-                        miNodoTipo.textContent = info.tipo;
-                        // Boton 
-                        const miNodoBoton = document.createElement('button');
-                        miNodoBoton.classList.add('btn', 'btn-primary');
-                        miNodoBoton.textContent = '+';
-                        miNodoBoton.setAttribute('marcador', info.id);
-                        miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-                        // Insertamos
-                        miNodoCardBody.appendChild(miNodoImagen);
-                        miNodoCardBody.appendChild(miNodoTitle);
-                        miNodoCardBody.appendChild(miNodoTipo);
-                        miNodoCardBody.appendChild(miNodoPrecio);
-                        miNodoCardBody.appendChild(miNodoBoton);
-                        miNodo.appendChild(miNodoCardBody);
-                        DOMitems.appendChild(miNodo);
-                    });
-                }
-
-                /**
-                * Evento para añadir un producto al carrito de la compra
-                */
-                function anyadirProductoAlCarrito(evento) {
-                    // Anyadimos el Nodo a nuestro carrito
-                    carrito.push(evento.target.getAttribute('marcador'))
-                    // Actualizamos el carrito 
-                    renderizarCarrito();
-                    // Actualizamos el LocalStorage
-                    guardarCarritoEnLocalStorage();
-                }
-
-                /**
-                * Dibuja todos los productos guardados en el carrito
-                */
-                function renderizarCarrito() {
-                    // Vaciamos todo el html
-                    DOMcarrito.textContent = '';
-                    // Quitamos los duplicados
-                    const carritoSinDuplicados = [...new Set(carrito)];
-                    // Generamos los Nodos a partir de carrito
-                    carritoSinDuplicados.forEach((item) => {
-                        // Obtenemos el item que necesitamos de la variable base de datos
-                        const miItem = baseDeDatos.filter((itemBaseDatos) => {
-                            // ¿Coincide las id? Solo puede existir un caso
-                            return itemBaseDatos.id === parseInt(item);
-                        });
-                        // Cuenta el número de veces que se repite el producto
-                        const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-                            // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
-                            return itemId === item ? total += 1 : total;
-                        }, 0);
-                        // Creamos el nodo del item del carrito
-                        const miNodo = document.createElement('li');
-                        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-                        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
-                        // Boton de borrar
-                        const miBoton = document.createElement('button');
-                        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
-                        miBoton.textContent = 'X';
-                        miBoton.style.marginLeft = '1rem';
-                        miBoton.dataset.item = item;
-                        miBoton.addEventListener('click', borrarItemCarrito);
-                        // Mezclamos nodos
-                        miNodo.appendChild(miBoton);
-                        DOMcarrito.appendChild(miNodo);
-                    });
-                    // Renderizamos el precio total en el HTML
-                    DOMtotal.textContent = calcularTotal();
-                }
-
-                /**
-                * Evento para borrar un elemento del carrito
-                */
-                function borrarItemCarrito(evento) {
-                    // Obtenemos el producto ID que hay en el boton pulsado
-                    const id = evento.target.dataset.item;
-                    // Borramos todos los productos
-                    carrito = carrito.filter((carritoId) => {
-                        return carritoId !== id;
-                    });
-                    // volvemos a renderizar
-                    renderizarCarrito();
-                    // Actualizamos el LocalStorage
-                    guardarCarritoEnLocalStorage();
-
-                }
-
-                /**
-                 * Calcula el precio total teniendo en cuenta los productos repetidos
-                 */
-                function calcularTotal() {
-                    // Recorremos el array del carrito 
-                    return carrito.reduce((total, item) => {
-                        // De cada elemento obtenemos su precio
-                        const miItem = baseDeDatos.filter((itemBaseDatos) => {
-                            return itemBaseDatos.id === parseInt(item);
-                        });
-                        // Los sumamos al total
-                        return total + miItem[0].precio;
-                    }, 0).toFixed(2);
-                }
-
-                /**
-                * Varia el carrito y vuelve a dibujarlo
-                */
-                function vaciarCarrito() {
-                    // Limpiamos los productos guardados
-                    carrito = [];
-                    // Renderizamos los cambios
-                    renderizarCarrito();
-                    // Borra LocalStorage
-                    localStorage.clear();
-
-                }
-
-                function guardarCarritoEnLocalStorage() {
-                    miLocalStorage.setItem('carrito', JSON.stringify(carrito));
-                }
-
-                function cargarCarritoDeLocalStorage() {
-                    // ¿Existe un carrito previo guardado en LocalStorage?
-                    if (miLocalStorage.getItem('carrito') !== null) {
-                        // Carga la información
-                        carrito = JSON.parse(miLocalStorage.getItem('carrito'));
-                    }
-                }
-
-                // Eventos
-                DOMbotonVaciar.addEventListener('click', vaciarCarrito);
-
-                // Inicio
-                cargarCarritoDeLocalStorage();
-                renderizarProductos();
-                renderizarCarrito();
-            });
-        </script>
-    </head>
+        <?php
+            session_start();
+            include_once("../Peticiones/funciones.php");
+            $dato = enviarInformacionArticulo($_SESSION['articulo']);
+           ?>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <!-- Elementos generados a partir del JSON -->
-                <main id="items" class="col-sm-8 row"></main>
-                <!-- Carrito -->
-                <aside class="col-sm-4">
-                    <h2>Carrito</h2>
-                    <!-- Elementos del carrito -->
-                    <ul id="carrito" class="list-group"></ul>
-                    <hr>
-                    <!-- Precio total -->
-                    <p class="text-right">Total: <span id="total"></span>&dollar;</p>
-                    <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-                </aside>
+        <div class="row text-center">
+
+            <div class=" p-2 w-50" align=center>
+
+                <div class="card border-warning mb-5" style="max-width: 35rem;">
+                    <div class="card-body">
+                        <?php echo "<img src='data:image/jpg;base64,".base64_encode($dato['imagen'])."' 
+                            alt='Palm Springs Road' with='400' height='500'/>";?>
+                    </div>
+                </div>
+            </div>
+            <div class="align-items-center d-flex justify-content-around p-2 w-50">
+                <a>
+                    <h1>Producto :
+                        <?php echo $dato['nombre']?>
+                    </h1> <br>
+                    <h2>Marca :
+                        <?php echo $dato['marca']?>
+                    </h2> <br>
+                    <h2>Precio :
+                        <?php echo $dato['precio']?>$
+                    </h2><br>
+                    <h2>Tipo :
+                        <?php echo $dato['tipo']?><br>
+                    </h2>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning">
+                        <h2>Comprar</h2>
+                    </button>
+                </a>
             </div>
         </div>
     </body>
-
-
-
+    </head>
     <!-- blog section end -->
     <!-- footer section start -->
     <div class="footer_section layout_padding">
@@ -378,6 +178,32 @@
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pago por PayPal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="exampleInputEmail1" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Ingrese el correo asosiado a su cuenta PayPal</div>
+                <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="clave">
 
+                <div class="form-text" hidden id="verifica" style="color:red">Credenciales no válidas</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning botonConfirmar" id=<?php echo
+                    $dato['id']?>>Comprar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+
+</footer>
 
 </html>
