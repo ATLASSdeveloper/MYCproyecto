@@ -48,4 +48,15 @@ include_once("../static/BD/consultas.php");
         session_start();
         $_SESSION['articulo']=$_POST['articulo_identificado'];
     }
+
+    if(isset($_POST['comboMiArticulo'])){
+        $miArticulo=$_POST['comboMiArticulo'];
+        include_once ("funciones.php");
+        if($miArticulo == "Filtrar por tipo de articulos"){
+            echo impresionControladaArticulos();
+        }else{
+            echo impresionComboBox($miArticulo);
+        }
+        
+    }
 ?>

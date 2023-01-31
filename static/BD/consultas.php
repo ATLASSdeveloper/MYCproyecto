@@ -53,4 +53,19 @@
         $consulta=$conexion->prepare("INSERT INTO facturas values(0,?,?,?,?,?)");
         $consulta->execute(array($comprador,$fecha,$articulo,$cantidad,$total));
     }
+
+    function tipoDeArticulos(){
+        $conexion=conectar();
+        $consulta=$conexion->prepare("SELECT tipo FROM articulos Group by tipo");
+        $consulta->execute();
+        $resultado=$consulta->fetchAll();
+        return $resultado;
+    } 
+    function listaComboArticulos($articulo){
+        $conexion=conectar();
+        $consulta=$conexion->prepare("SELECT * FROM articulos Where tipo=?");
+        $consulta->execute(array($articulo));
+        $resultado=$consulta->fetchAll();
+        return $resultado;
+    }
 ?>

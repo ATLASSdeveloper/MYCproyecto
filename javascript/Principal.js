@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $(".articulos").click(function(){
+        alert("aqui");
         id_articulo=$(this).attr("id");
         $.ajax({
             type : "Post",
@@ -11,5 +12,9 @@ $(document).ready(function(){
             }
         })
     });
+
+    
+
+        
 
 });
