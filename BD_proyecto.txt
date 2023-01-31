@@ -3,7 +3,7 @@ USE proyectomycs;
 CREATE TABLE usuarios (
 	id int not null AUTO_INCREMENT,
 	PRIMARY KEY (id), 
-	email varchar(20) not null, 
+	email varchar(50) not null, 
 	clave varchar(5) not null
 );
 
