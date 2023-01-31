@@ -55,7 +55,6 @@ session_start();
             url : "../Peticiones/registro.php",
             data : {comboMiArticulo:articulo},
             success : function(data){
-				alert(data)
                 $("#impresion").html(data);
             }
         })
