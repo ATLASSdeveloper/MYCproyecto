@@ -46,7 +46,21 @@ session_start();
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<script src="./static/javascript/jquery.js"></script>
-		<script src="./static/javascript/Principal.js"></script>        
+		<script src="./static/javascript/Principal.js"></script>  
+		<script>$(document).ready(function(){
+			$("#comboArticulos").on('change', function (e){
+            articulo=this.value;
+			$.ajax({
+            type : "Post",
+            url : "../Peticiones/registro.php",
+            data : {comboMiArticulo:articulo},
+            success : function(data){
+                $("#impresion").html(data);
+            }
+        })
+        });
+		
+		})</script>      
 </head>
 
 <body>
@@ -73,7 +87,7 @@ session_start();
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
+								<a href="paginaPrincipal.php" class="logo">
 									<img src="./static/img/logo.png" alt="">
 								</a>
 							</div>
@@ -128,15 +142,21 @@ session_start();
 						</div>
 					</div>
 					<!-- /section title -->
-
+					<select class="form-select" aria-label="Default select example" id="comboArticulos">
+  <option selected>Filtrar por tipo de articulos</option>
+  <?php
+  include_once("../Peticiones/funciones.php");
+	echo tipoDeArticulosLista();
+  ?>
+</select>
 					<!-- Products tab & slick -->
 								<!-- tab -->
-
+<div id="impresion">
 <?php
-	include_once("../Peticiones/funciones.php");
+	
 	echo impresionControladaArticulos();
 ?>
-										
+	</div>									
 								<!-- /tab -->
 					<!-- Products tab & slick -->
 				</div>
@@ -172,6 +192,12 @@ session_start();
 									<li><a href="#"><i class="fa fa-phone"></i>+593 58763456</a></li>
 									<li><a href="#"><i class="fa fa-envelope-o"></i>miniamazon@email.com</a></li>
 								</ul>
+								<!-- copyright section start -->
+								<div class="copyright_section">
+                                        <div class="container">
+                                            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="../menu.html">MiniAmazon</a></p>
+                                        </div>
+                                </div>
 							</div>
 					</div>
 				</div>
