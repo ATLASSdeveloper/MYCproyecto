@@ -67,15 +67,7 @@ session_start();
 		<!-- HEADER -->
 		<header>
 			<!-- TOP HEADER -->
-			<div id="top-header">
-				<div class="container">
-					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +593 998881547</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> miniamazon@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> Ambato - Ecuador</a></li>
-					</ul>
-				</div>
-			</div>
+
 			<!-- /TOP HEADER -->
 
 			<!-- MAIN HEADER -->
