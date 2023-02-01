@@ -73,7 +73,7 @@ session_start();
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
+								<a href="paginaPrincipal.php" class="logo">
 									<img src="./static/img/logo.png" alt="">
 								</a>
 							</div>
