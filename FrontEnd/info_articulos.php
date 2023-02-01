@@ -17,80 +17,81 @@ $dato=enviarInformacionArticulo($_SESSION['articulo']);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Articulos1</title>
+    <title>Articulo</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
-    <!-- style css -->
-    <link rel="stylesheet" type="text/css" href="../static/css/styles_menu.css">
-    <!-- Responsive-->
-    <link rel="stylesheet" href="../static/css/responsive.css">
-    <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.min.css">
-    <!-- Tweaks for older IEs-->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Righteous&display=swap" rel="stylesheet">
-    <!-- owl stylesheets -->
-    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-        media="screen">
-        <link type="text/css" rel="stylesheet" href="./static/css/nouislider.min.css"/>
-        <link rel="stylesheet" href="./static/css/font-awesome.min.css">
-        <link type="text/css" rel="stylesheet" href="./static/css/style.css"/>
+    <!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="./static/css/bootstrap.min.css"/>
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="./static/css/slick.css"/>
+    <link type="text/css" rel="stylesheet" href="./static/css/slick-theme.css"/>
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="./static/css/nouislider.min.css"/>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="./static/css/style.css"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./static/javascript/jquery.js"></script>
+    <script src="./static/javascript/Principal.js"></script>
 </head>
 
 <body>
-    <!-- header section start -->
-    <div class="header_section">
-        <div class="header_main">
-            <div class="mobile_menu">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="logo_mobile"><a href="menu.html"><img src="../static/images/Menu/logo.png"></a></div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="menu.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="acerca_de.html">Acerca de</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="services.html">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="blog.html">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="contact.html">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="container-fluid">
-                <div class="logo"><a href="menu.html"><img src="../static/images/Menu/logo.png"></a></div>
-                <div class="menu_main">
-                    <ul>
-                        <li class="active"><a href="menu.html">Home</a></li>
-                        <li><a href="acerca_de.html">Acerca de</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +593 998881547</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> miniamazon@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> Ambato - Ecuador</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="paginaPrincipal.php" class="logo">
+									<img src="./static/img/logo.png" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
 
 
     <head>
@@ -124,40 +125,7 @@ $dato=enviarInformacionArticulo($_SESSION['articulo']);
         </div>
     </body>
     </head>
-    <!-- blog section end -->
-    <!-- footer section start -->
-    <footer id="footer">
-			<!-- top footer -->
-			<div class="section">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row" >
-							<div class="footer">
-								<h3 class="footer-title">Sobre Nosotros</h3>
-								<p>Somos un negocio en línea para la venta de diferentes productos ofrecidos por el mercado</p>
-								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>Ambato</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+593 58763456</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>miniamazon@email.com</a></li>
-								</ul>
-							</div>
-					</div>
-				</div>
-			</div>
-			<div id="bottom-footer" class="section">
-				<div class="container">
-				</div>
-			</div>
-		</footer>
-    <!-- footer section end -->
-    <!-- copyright section start -->
-    <div class="copyright_section">
-        <div class="container">
-            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="./menu.html">MiniAmazon</a></p>
-        </div>
-    </div>
-    <!-- copyright section end -->
+    
     <!-- Javascript files-->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -196,7 +164,41 @@ $dato=enviarInformacionArticulo($_SESSION['articulo']);
     </div>
 </div>
 <footer>
+    <!-- blog section end -->
+    <!-- footer section start -->
+    <footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row" >
+							<div class="footer">
+								<h3 class="footer-title">Sobre Nosotros</h3>
+								<p>Somos un negocio en línea para la venta de diferentes productos ofrecidos por el mercado</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>Ambato</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+593 58763456</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>miniamazon@email.com</a></li>
+								</ul>
+                                    <!-- copyright section start -->
+                                    <div class="copyright_section">
+                                        <div class="container">
+                                            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="../menu.html">MiniAmazon</a></p>
+                                        </div>
+                                    </div>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div id="bottom-footer" class="section">
+				<div class="container">
+				</div>
+			</div>
+		</footer>
+    <!-- footer section end -->
 
+    <!-- copyright section end -->
 </footer>
 
 </html>

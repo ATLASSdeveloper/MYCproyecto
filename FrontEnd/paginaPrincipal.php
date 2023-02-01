@@ -87,7 +87,7 @@ session_start();
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
+								<a href="paginaPrincipal.php" class="logo">
 									<img src="./static/img/logo.png" alt="">
 								</a>
 							</div>
@@ -192,6 +192,12 @@ session_start();
 									<li><a href="#"><i class="fa fa-phone"></i>+593 58763456</a></li>
 									<li><a href="#"><i class="fa fa-envelope-o"></i>miniamazon@email.com</a></li>
 								</ul>
+								<!-- copyright section start -->
+								<div class="copyright_section">
+                                        <div class="container">
+                                            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="../menu.html">MiniAmazon</a></p>
+                                        </div>
+                                </div>
 							</div>
 					</div>
 				</div>
